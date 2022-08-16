@@ -8,8 +8,8 @@ type menuType = {
 };
 
 const menuData: Array<menuType> = [
-  { id: "menu01", name: "얼굴형 진단", path: "/Home" },
-  { id: "menu02", name: "컨설팅", path: "/Consulting" },
+  { id: "menu01", name: "얼굴형 진단", path: "/home" },
+  { id: "menu02", name: "컨설팅", path: "/consulting" },
 ];
 
 const StyledLink = styled.div`

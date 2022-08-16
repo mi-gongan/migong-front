@@ -8,6 +8,10 @@
 
 ## 환경 설정
 
+```
 npx create-next-app@latest --typescript
+```
 
 ### style-components 설정
+
+https://velog.io/@danmin20/Next.js-Typescript-Styled-component-%EC%89%BD%EA%B2%8C-%EA%B5%AC%EC%B6%95%ED%95%98%EA%B8%B0

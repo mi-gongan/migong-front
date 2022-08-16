@@ -1,8 +1,8 @@
 import React from "react";
-// import styled from "styled-components";
+import HomeTemplate from "../components/homeTemplate";
 
-function Home() {
-  return <>여기는 홈</>;
+function home() {
+  return <HomeTemplate />;
 }
 
-export default Home;
+export default home;
