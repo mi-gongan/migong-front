@@ -28,10 +28,14 @@ export const faceDataSlice = createSlice({
     setFaceShape: (state, action: PayloadAction<string>) => {
       state.faceShape = action.payload;
     },
+    setReset: (state) => {
+      state.isDone = "";
+    },
   },
 });
 
-export const { setIsDone, setFaceSize, setFaceShape } = faceDataSlice.actions;
+export const { setIsDone, setFaceSize, setFaceShape, setReset } =
+  faceDataSlice.actions;
 
 export const selectIsDone = (state: RootState) => state.faceData.isDone;
 export const selectFaceShape = (state: RootState) => state.faceData.faceShape;
