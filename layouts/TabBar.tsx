@@ -36,13 +36,11 @@ function TabBar() {
   return (
     <StyledLink>
       {menuData.map((menu) => (
-        <>
-          <Link href={menu.path}>
-            <a className={menu.path === router.pathname ? "click" : "none"}>
-              {menu.name}
-            </a>
-          </Link>
-        </>
+        <Link href={menu.path} key={menu.id}>
+          <a className={menu.path === router.pathname ? "click" : "none"}>
+            {menu.name}
+          </a>
+        </Link>
       ))}
     </StyledLink>
   );
