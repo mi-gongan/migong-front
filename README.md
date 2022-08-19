@@ -1,5 +1,9 @@
 # migongApp( 마이그레이션 및 리팩토링 )
 
+### 원래 사이트
+
+https://migong.vercel.app/
+
 #### 해야할 것
 
 1. CSR->SSR(NEXT.js)
