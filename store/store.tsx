@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import faceDataSlice from "./faceData/faceDataSlice";
+import faceDataSlice from "./slices/faceDataSlice";
 
 export const store = configureStore({
   reducer: {

@@ -2,13 +2,16 @@ import type { NextPage } from "next";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useAppSelector } from "../hooks/reduxHooks";
+import { selectIsDone } from "../store/slices/faceDataSlice";
 
 //이 페이지를 스플레쉬 화면으로 구성
 
 const Home: NextPage = () => {
   const router = useRouter();
-
   const [fadeout, setFadeout] = useState(false);
+
+  const isDone = useAppSelector(selectIsDone);
 
   //글자가 점점 뚜렷해지는 이팩트
   useEffect(() => {
@@ -16,9 +19,10 @@ const Home: NextPage = () => {
       setFadeout(true);
     }, 700);
     setTimeout(() => {
-      router.push("/home");
+      console.log(isDone);
+      isDone === "Done" ? router.push("/result") : router.push("/diagnosis");
     }, 3000);
-  }, [router]);
+  }, [router, isDone]);
 
   return (
     <Screen>

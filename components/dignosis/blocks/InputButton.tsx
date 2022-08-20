@@ -1,5 +1,5 @@
 import React from "react";
-import BottomButton from "../common/BottomButton";
+import BottomButton from "../../common/block/BottomButton";
 
 interface DiagnosisPropsType {
   handleClick: () => void;
@@ -7,7 +7,7 @@ interface DiagnosisPropsType {
   inputRef: React.RefObject<HTMLInputElement>;
 }
 
-function Diagnosis({ handleClick, saveImage, inputRef }: DiagnosisPropsType) {
+function InputButton({ handleClick, saveImage, inputRef }: DiagnosisPropsType) {
   return (
     <>
       <BottomButton
@@ -25,4 +25,4 @@ function Diagnosis({ handleClick, saveImage, inputRef }: DiagnosisPropsType) {
   );
 }
 
-export default Diagnosis;
+export default InputButton;

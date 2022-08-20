@@ -20,13 +20,8 @@ const ButtonWrap = styled.div`
   width: 100%;
   max-width: 500px;
   text-align: center;
-  position: fixed;
-  bottom: 0px;
-  left: 50%;
-  transform: translateX(-50%);
   height: 80px;
   line-height: 80px;
-
   button {
     width: 70%;
     padding: 10px;

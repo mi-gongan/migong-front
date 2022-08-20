@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import AppBar from "../layouts/AppBar";
-import TabBar from "../layouts/TabBar";
+import AppBar from "../components/layouts/AppBar";
+import TabBar from "../components/layouts/TabBar";
 import styled from "styled-components";
 import { Provider } from "react-redux";
 import { store } from "../store/store";

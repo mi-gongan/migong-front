@@ -1,27 +1,33 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { useAppSelector, useAppDispatch } from "../../hooks/reduxHooks";
+import styled from "styled-components";
+import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import {
-  selectIsDone,
-  setIsDone,
   setFaceSize,
   setFaceShape,
-} from "../../store/faceData/faceDataSlice";
-import { faceShapeText } from "../../utils/faceUtils";
-import { convertImageToBase64 } from "../../utils/faceUtils";
+  setIsDone,
+  selectIsDone,
+} from "../../../store/slices/faceDataSlice";
+import { faceShapeText } from "../../../utils/faceUtils";
+import { convertImageToBase64 } from "../../../utils/faceUtils";
 
-import Loading from "./Loading";
-import Result from "../Home/Result";
-import Diagnosis from "./Diagnosis";
+import Loading from "../../common/templates/Loading";
+import InputButton from "../blocks/InputButton";
 
-function HomeTemplate() {
+function DiagnosisTemplate() {
   const [image, setImage] = useState(null);
   const [upload, setUpload] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
-
+  const router = useRouter();
   const isDone = useAppSelector(selectIsDone);
-
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (isDone === "Done") {
+      router.push("/result");
+    }
+  }, [isDone, router]);
 
   //button통해서 input창 클릭되도록 하는 함수
   const handleClick = useCallback(() => {
@@ -58,13 +64,14 @@ function HomeTemplate() {
       dispatch(setFaceSize(fetchData));
       dispatch(setFaceShape(faceShapeText(fetchData)));
       dispatch(setIsDone("Done"));
+      router.push("/result");
       setUpload("");
     } catch (error) {
       console.log(error);
       alert("사진을 다시 찍어주세요");
       setUpload("");
     }
-  }, [image, dispatch]);
+  }, [image, dispatch, router]);
 
   //의존성 배열을 통해 이미지 업로드되면 서버로 보내는 사이드이팩트
   useEffect(() => {
@@ -75,21 +82,31 @@ function HomeTemplate() {
 
   return (
     <>
-      {!isDone ? (
-        !upload ? (
-          <Diagnosis
-            handleClick={handleClick}
-            saveImage={saveImage}
-            inputRef={inputRef}
-          ></Diagnosis>
-        ) : (
-          <Loading text="진단중입니다"></Loading>
-        )
+      {!upload ? (
+        <Wrap>
+          <ButtonWrap>
+            <InputButton
+              handleClick={handleClick}
+              saveImage={saveImage}
+              inputRef={inputRef}
+            ></InputButton>
+          </ButtonWrap>
+        </Wrap>
       ) : (
-        <Result />
+        <Loading text="진단중입니다"></Loading>
       )}
     </>
   );
 }
 
-export default HomeTemplate;
+export default DiagnosisTemplate;
+
+const Wrap = styled.div`
+  height: calc(100vh - 108px);
+  display: flex;
+  flex-direction: column;
+`;
+
+const ButtonWrap = styled.div`
+  margin-top: auto;
+`;

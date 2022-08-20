@@ -8,7 +8,7 @@ type menuType = {
 };
 
 const menuData: Array<menuType> = [
-  { id: "menu01", name: "얼굴형 진단", path: "/home" },
+  { id: "menu01", name: "얼굴형 진단", path: "/diagnosis" },
   { id: "menu02", name: "컨설팅", path: "/consulting" },
 ];
 
@@ -33,11 +33,13 @@ const StyledLink = styled.div`
 
 function TabBar() {
   const router = useRouter();
+  const nowPath =
+    router.pathname === "/result" ? "/diagnosis" : router.pathname;
   return (
     <StyledLink>
       {menuData.map((menu) => (
         <Link href={menu.path} key={menu.id}>
-          <a className={menu.path === router.pathname ? "click" : "none"}>
+          <a className={menu.path === nowPath ? "click" : "none"}>
             {menu.name}
           </a>
         </Link>
