@@ -1,5 +1,11 @@
-import Document, { DocumentContext, DocumentInitialProps } from "next/document";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  NextScript,
+} from "next/document";
 import { ServerStyleSheet } from "styled-components";
+import { Html, Main, Head } from "next/document";
+import React, { ReactElement } from "react";
 
 export default class MyDocument extends Document {
   static async getInitialProps(
@@ -28,5 +34,17 @@ export default class MyDocument extends Document {
     } finally {
       sheet.seal();
     }
+  }
+  render(): ReactElement {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <div id="portal" />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }

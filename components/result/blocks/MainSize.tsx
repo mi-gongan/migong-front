@@ -66,7 +66,7 @@ const Wrap = styled.div`
 const SizeBoxWrap = styled.div`
   position: relative;
   margin-top: 10px;
-  widht: 100%;
+  width: 100%;
   height: 70px;
   font-size: 14px;
   color: #747474;

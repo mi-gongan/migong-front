@@ -1,5 +1,5 @@
 import React from "react";
-import DiagnosisTemplate from "../components/dignosis/templates/DiagnosisTemplate";
+import DiagnosisTemplate from "../../components/dignosis/templates/DiagnosisTemplate";
 
 function diagnosis() {
   return <DiagnosisTemplate />;

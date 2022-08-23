@@ -1,5 +1,5 @@
 import React from "react";
-import BottomButton from "../../common/block/BottomButton";
+import BottomButton from "../../common/BottomButton";
 
 interface DiagnosisPropsType {
   handleClick: () => void;

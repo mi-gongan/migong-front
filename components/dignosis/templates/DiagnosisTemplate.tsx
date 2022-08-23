@@ -12,7 +12,7 @@ import {
 import { faceShapeText } from "../../../utils/faceUtils";
 import { convertImageToBase64 } from "../../../utils/faceUtils";
 
-import Loading from "../../common/templates/Loading";
+import Loading from "../../common/Loading";
 import InputButton from "../blocks/InputButton";
 
 function DiagnosisTemplate() {
@@ -25,7 +25,7 @@ function DiagnosisTemplate() {
 
   useEffect(() => {
     if (isDone === "Done") {
-      router.push("/result");
+      router.push("/diagnosis/result");
     }
   }, [isDone, router]);
 
@@ -55,7 +55,7 @@ function DiagnosisTemplate() {
     try {
       //@ts-ignore
       const response = await axios({
-        url: "https://hanjoongyoo.pythonanywhere.com/dlib/test",
+        url: process.env.NEXT_PUBLIC_API_URL,
         method: "POST",
         data,
         contentType: "application/json; charset=UTF-8",
@@ -64,7 +64,7 @@ function DiagnosisTemplate() {
       dispatch(setFaceSize(fetchData));
       dispatch(setFaceShape(faceShapeText(fetchData)));
       dispatch(setIsDone("Done"));
-      router.push("/result");
+      router.push("/diagnosis/result");
       setUpload("");
     } catch (error) {
       console.log(error);

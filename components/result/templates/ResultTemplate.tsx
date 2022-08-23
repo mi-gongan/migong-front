@@ -5,7 +5,7 @@ import { useAppSelector } from "../../../hooks/reduxHooks";
 import { selectFaceShape, setReset } from "../../../store/slices/faceDataSlice";
 import { useDispatch } from "react-redux";
 import MainSize from "../blocks/MainSize";
-import BottomButton from "../../common/block/BottomButton";
+import BottomButton from "../../common/BottomButton";
 import { useRouter } from "next/router";
 
 function ResultTemplate() {

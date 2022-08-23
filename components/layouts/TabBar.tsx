@@ -33,13 +33,13 @@ const StyledLink = styled.div`
 
 function TabBar() {
   const router = useRouter();
-  const nowPath =
-    router.pathname === "/result" ? "/diagnosis" : router.pathname;
+  const firstPath = `/${router.pathname.split("/")[1]}`;
+
   return (
     <StyledLink>
       {menuData.map((menu) => (
         <Link href={menu.path} key={menu.id}>
-          <a className={menu.path === nowPath ? "click" : "none"}>
+          <a className={menu.path === firstPath ? "click" : "none"}>
             {menu.name}
           </a>
         </Link>

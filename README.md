@@ -4,6 +4,10 @@
 
 https://migong.vercel.app/
 
+### 추가 설명 사이트
+
+https://migong.oopy.io/
+
 #### 해야할 것
 
 1. CSR->SSR(NEXT.js)
