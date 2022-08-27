@@ -9,8 +9,8 @@ import {
   setIsDone,
   selectIsDone,
 } from "../../../store/slices/faceDataSlice";
-import { faceShapeText } from "../../../utils/faceUtils";
-import { convertImageToBase64 } from "../../../utils/faceUtils";
+import { faceShapeText } from "../../../services/face";
+import { convertImageToBase64 } from "../../../services/face";
 
 import Loading from "../../common/Loading";
 import InputButton from "../blocks/InputButton";

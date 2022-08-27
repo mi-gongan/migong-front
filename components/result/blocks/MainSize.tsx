@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { selectFaceSize } from "../../../store/slices/faceDataSlice";
-import { facePercentCalc } from "../../../utils/faceUtils";
+import { facePercentCalc } from "../../../services/face";
 
 function MainSize() {
   const faceSize = useAppSelector(selectFaceSize);
@@ -42,13 +42,6 @@ function MainSize() {
         </PercentWrap>
         <div className="is-or-not">{jaw > 50 ? "있음" : "없음"}</div>
       </SizeBoxWrap>
-
-      {/* <PercentBar>
-        <Bar percent={faceSizePercent.cheekPercent}></Bar>
-      </PercentBar>
-      <PercentBar>
-        <Bar percent={faceSizePercent.jawPercent}></Bar>
-      </PercentBar> */}
     </Wrap>
   );
 }
