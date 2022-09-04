@@ -2,7 +2,7 @@
 
 ### 사이트
 
-https://migong-front.vercel.app/diagnosis
+https://migong-front.vercel.app
 
 ### 추가 설명 사이트
 
