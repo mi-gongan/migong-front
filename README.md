@@ -1,8 +1,8 @@
 # migongApp( 마이그레이션 및 리팩토링 )
 
-### 원래 사이트
+### 사이트
 
-https://migong.vercel.app/
+https://migong-front.vercel.app/diagnosis
 
 ### 추가 설명 사이트
 
